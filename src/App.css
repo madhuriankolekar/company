@@ -1,0 +1,19 @@
+/* App.css */
+
+.App {
+  text-align: center;
+}
+
+.Navbar {
+  margin-bottom: 20px;
+}
+
+.Navbar .navbar-brand,
+.Navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.Navbar .nav-link:hover {
+  color: #f8f9fa !important;
+  text-decoration: underline;
+}

@@ -1,0 +1,35 @@
+.slider-container {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .slider .slick-slide {
+    padding: 10px; /* Add padding to create space between slides */
+  }
+  
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px; /* Add padding inside the card */
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%; /* Ensure images take up full width of the card */
+    height: auto;
+  }
+  
+  .buttons-container {
+    margin-top: 20px; /* Add margin to separate buttons from slider */
+  }
+  
+  .button {
+    margin: 0 10px; /* Add margin to buttons for spacing */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

@@ -1,25 +1,33 @@
-// src/Navbar.js
-
 import React, { useState } from 'react';
-import { Navbar as BootstrapNavbar, Nav, OverlayTrigger, Popover, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar as BootstrapNavbar, Nav, OverlayTrigger, Popover, Form, FormControl, Button, Modal } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const CustomNavbar = () => {
-  const [show, setShow] = useState(false);
+  const [showPopover, setShowPopover] = useState(false);
   const [target, setTarget] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // For navigation
 
   const handleMouseEnter = (event) => {
-    setShow(true);
+    setShowPopover(true);
     setTarget(event.target);
   };
 
   const handleMouseLeave = () => {
-    setShow(false);
+    setShowPopover(false);
     setTarget(null);
+  };
+
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+  const handleSignup = () => {
+    handleCloseModal();
+    navigate('/signup'); // Navigate to the Signup page
   };
 
   const renderNavLinkWithPopover = (label, href, popoverContent) => (
     <OverlayTrigger
-      show={show && target && target.getAttribute('href') === href}
+      show={showPopover && target && target.getAttribute('href') === href}
       target={target}
       placement="bottom"
       overlay={
@@ -52,7 +60,8 @@ const CustomNavbar = () => {
             className="mr-2"
             aria-label="Search"
           />
-          <Button variant="outline-success">Search</Button>
+          <Button variant="outline-success" className="mr-2">Search</Button>
+          <Button variant="outline-primary" onClick={handleShowModal}>Login</Button>
         </Form>
       </BootstrapNavbar>
       <BootstrapNavbar bg="light" expand="lg">
@@ -65,6 +74,34 @@ const CustomNavbar = () => {
           {renderNavLinkWithPopover('Pens', '#pens', 'This is the Pens popover content.')}
         </Nav>
       </BootstrapNavbar>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleSignup}>
+            Signup
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

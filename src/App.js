@@ -10,7 +10,8 @@ import image6 from './assert/download.jpg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css"; // Import your custom CSS file
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignIn from './components/SignIn';
 const App = () => {
   let sliderRef = useRef(null);
 
@@ -33,40 +34,13 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <CustomNavbar />
-      <div className="slider-container">
-        <h2>Auto Play {"&"} Pause with buttons</h2>
-        <Slider ref={slider => (sliderRef = slider)} {...settings}>
-          <div className="card">
-            <img src={image1} alt="Image 1" />
-          </div>
-          <div className="card">
-            <img src={image2} alt="Image 2" />
-          </div>
-          <div className="card">
-            <img src={image3} alt="Image 3" />
-          </div>
-          <div className="card">
-            <img src={image4} alt="Image 4" />
-          </div>
-          <div className="card">
-            <img src={image5} alt="Image 5" />
-          </div>
-          <div className="card">
-            <img src={image6} alt="Image 6" />
-          </div>
-        </Slider>
-        <div className="buttons-container" style={{ textAlign: "center" }}>
-          <button className="button" onClick={play}>
-            Play
-          </button>
-          <button className="button" onClick={pause}>
-            Pause
-          </button>
-        </div>
-      </div>
-    </div>
+    
+    <Router>
+    <Routes>
+      <Route path="/signup" element={<SignIn />} />
+      <Route path="/" element={<CustomNavbar />} />
+    </Routes>
+  </Router>
   );
 };
 

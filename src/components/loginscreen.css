@@ -1,0 +1,76 @@
+/* styles.css */
+
+
+.sign-in-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f7fa;
+  }
+  
+
+
+
+  .card1 {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 56px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .card1 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .account-box {
+    width: 300px; /* Adjust the width as needed */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f2ee6d;
+  }
+  
+  .input-group {
+    margin-bottom: 10px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .mobile-sign-in,
+  .create-account,
+  .forgot-password {
+    cursor: pointer;
+    text-align: center;
+    color: #3498db;
+    margin-top: 10px;
+  }
+  
+  .forgot-password {
+    margin-top: 20px;
+  }
+  
